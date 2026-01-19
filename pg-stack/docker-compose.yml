@@ -12,11 +12,14 @@ services:
       - vol-pgdata:/var/lib/postgresql/data
 
   pgadmin:
-    container_name: pgadmin
+    container_name: pgadmin_new
     image: dpage/pgadmin4:latest
     environment:
       PGADMIN_DEFAULT_EMAIL: "pgadmin@pgadmin.com"
       PGADMIN_DEFAULT_PASSWORD: "pgadmin"
+      PGADMIN_CONFIG_PROXY_X_HOST_COUNT: 1
+      PGADMIN_CONFIG_PROXY_X_PROTO_COUNT: 1
+
     ports:
       - "8080:80"
     volumes:
